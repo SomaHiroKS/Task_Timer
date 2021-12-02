@@ -5,7 +5,12 @@
     <title></title>
   </head>
   <body>
-    <p id="TaskName">タスク名</p>
+    <p>
+      <p>新規タスク名</p>
+      <input type="text" id="TaskName">
+      <input type="button" value="決定" id="TaskNameIn" onclick="GetTaskName();">
+    </p>
+    
     <p>
         <input type="button" value="カウント開始" id="startcount" onclick="startTimer();">
         <input type="button" value="カウント再開" id="restartcount" onclick="restartTimer();">

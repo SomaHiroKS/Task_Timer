@@ -45,3 +45,8 @@ function resetTimer() {
    document.getElementById("restartcount").disabled = true;
    document.getElementById("resetcount").disabled = true;
 }
+
+function GetTaskName(){
+   const textbox = document.getElementById("TaskName")
+   const value = textbox.value
+}
