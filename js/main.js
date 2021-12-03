@@ -4,7 +4,6 @@ window.onload = function(){
    document.getElementById("restartcount").disabled = true;
    document.getElementById("resetcount").disabled = true;
    document.getElementById("stopcount").disabled = true;
-   console.log("A");
 }
 
 // 繰り返し処理の中身
@@ -46,7 +45,10 @@ function resetTimer() {
    document.getElementById("resetcount").disabled = true;
 }
 
-function GetTaskName(){
-   const textbox = document.getElementById("TaskName")
-   const value = textbox.value
+function SetWorkTime(){
+   const hour = document.getElementById("workhour")
+   const minute = document.getElementById("workminute")
+   const hour_value = hour.value
+   const minute_value = minute.value
+   console.log(hour_value + "時間" + minute_value +"分");
 }

@@ -5,11 +5,13 @@
     <title></title>
   </head>
   <body>
-    <p>
-      <p>新規タスク名</p>
-      <input type="text" id="TaskName">
-      <input type="button" value="決定" id="TaskNameIn" onclick="GetTaskName();">
-    </p>
+    <h1>タスクタイマー</h1>
+    <div>
+      <p>作業時間</p>
+      <input type="text" id="workhour">
+      <input type="text" id="workminute">
+      <input type="button" value="決定" id="worktime" onclick="SetWorkTime();">
+    </div>
     
     <p>
         <input type="button" value="カウント開始" id="startcount" onclick="startTimer();">
@@ -18,6 +20,8 @@
         <input type="button" value="カウントリセット" id="resetcount" onclick="resetTimer();">
     </p>
     <p id="PassageArea">(ここにカウントが表示されます)</p>
+
+
     <script src="./js/main.js"></script>
   </body>
 </html>
