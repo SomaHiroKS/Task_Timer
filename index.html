@@ -12,6 +12,8 @@
       <input type="text" id="workminute">
       <input type="button" value="決定" id="worktime" onclick="SetWorkTime();">
     </div>
+
+    
     
     <p>
         <input type="button" value="カウント開始" id="startcount" onclick="startTimer();">
@@ -19,7 +21,13 @@
         <input type="button" value="カウント一時停止" id="stopcount" onclick="stopTimer();">
         <input type="button" value="カウントリセット" id="resetcount" onclick="resetTimer();">
     </p>
-    <p id="PassageArea">(ここにカウントが表示されます)</p>
+
+    <p class="until">休憩まで</p>
+    <p class="timer">あと
+      <span id="hour"></span>時間
+      <span id="min"></span>分
+      <span id="sec"></span>秒
+    </p>
 
 
     <script src="./js/main.js"></script>

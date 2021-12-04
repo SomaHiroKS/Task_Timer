@@ -1,4 +1,7 @@
+var PassHour;   // 秒数カウント用変数
+var PassMin;   // 秒数カウント用変数
 var PassSec;   // 秒数カウント用変数
+var PassSumSec;
  
 window.onload = function(){
    document.getElementById("restartcount").disabled = true;
@@ -7,23 +10,29 @@ window.onload = function(){
 }
 
 // 繰り返し処理の中身
-function showPassage() {
-   PassSec++;
-   var msg = "ボタンを押してから " + PassSec + "秒が経過しました。";
-   document.getElementById("PassageArea").innerHTML = msg;
+function countdown() {
+   PassSumSec = PassHour * 3600 + PassMin * 60 + PassSec;
+   PassSumSec--;
+   
+   PassHour = Math.floor(PassSumSec / 3600);
+   PassMin = Math.floor(PassSumSec / 60)%60;
+   PassSec = PassSumSec%60;
+   
+   document.getElementById("hour").textContent=String(PassHour).padStart(2,"0"); //一桁になった時0がつくように
+   document.getElementById("min").textContent=String(PassMin).padStart(2,"0")
+   document.getElementById("sec").textContent=String(PassSec).padStart(2,"0")
 }
  
 // 繰り返し処理の開始
 function startTimer() {
-   PassSec=0;
-   PassageID = setInterval('showPassage()',1000);
+   PassageID = setInterval('countdown()',1000);
    document.getElementById("startcount").disabled = true;
    document.getElementById("resetcount").disabled = false;
    document.getElementById("stopcount").disabled = false;
 }
 
 function restartTimer() {
-   PassageID = setInterval('showPassage()',1000);
+   PassageID = setInterval('countdown()',1000);
    document.getElementById("restartcount").disabled = true;
 }
  
@@ -36,7 +45,7 @@ function stopTimer() {
 // タイマーリセット
 function resetTimer() {
    clearInterval( PassageID );   // タイマーのクリア
-   var msg = "ボタンを押してから " + 0 + "秒が経過しました。";
+   var msg = PassHour + "時間" + PassMin + "分" + PassSec + "秒";
    document.getElementById("PassageArea").innerHTML = msg;
    
    document.getElementById("startcount").disabled = false;
@@ -48,7 +57,12 @@ function resetTimer() {
 function SetWorkTime(){
    const hour = document.getElementById("workhour")
    const minute = document.getElementById("workminute")
-   const hour_value = hour.value
-   const minute_value = minute.value
-   console.log(hour_value + "時間" + minute_value +"分");
+   PassHour = hour.value
+   PassMin = minute.value
+   PassSec = 0;
+   PassSumSec = PassHour * 3600 + PassMin * 60 + PassSec;
+
+   document.getElementById("hour").textContent=String(PassHour).padStart(2,"0"); //一桁になった時0がつくように
+   document.getElementById("min").textContent=String(PassMin).padStart(2,"0")
+   document.getElementById("sec").textContent=String(PassSec).padStart(2,"0")
 }
