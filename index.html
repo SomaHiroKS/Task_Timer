@@ -13,8 +13,13 @@
       <input type="button" value="決定" id="worktime" onclick="SetWorkTime();">
     </div>
 
-    
-    
+    <div>
+      <p>休憩時間</p>
+      <input type="text" id="breakhour">
+      <input type="text" id="breakminute">
+      <input type="button" value="決定" id="breaktime" onclick="SetBreakTime();">
+    </div>
+
     <p>
         <input type="button" value="カウント開始" id="startcount" onclick="startTimer();">
         <input type="button" value="カウント再開" id="restartcount" onclick="restartTimer();">
@@ -22,7 +27,7 @@
         <input type="button" value="カウントリセット" id="resetcount" onclick="resetTimer();">
     </p>
 
-    <p class="until">休憩まで</p>
+    <p id="now">休憩まで</p>
     <p class="timer">あと
       <span id="hour"></span>時間
       <span id="min"></span>分

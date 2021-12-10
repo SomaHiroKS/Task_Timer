@@ -2,25 +2,47 @@ var PassHour;   // 秒数カウント用変数
 var PassMin;   // 秒数カウント用変数
 var PassSec;   // 秒数カウント用変数
 var PassSumSec;
+var BreakHour;
+var BreakMin;
+var BreakSec;
+var BreakSumSec;
+var WorkFlag;
+var SumSec;
  
 window.onload = function(){
    document.getElementById("restartcount").disabled = true;
    document.getElementById("resetcount").disabled = true;
    document.getElementById("stopcount").disabled = true;
+   WorkFlag = Boolean("true");
 }
 
 // 繰り返し処理の中身
 function countdown() {
-   PassSumSec = PassHour * 3600 + PassMin * 60 + PassSec;
-   PassSumSec--;
+   if(WorkFlag){
+      SumSec = PassSumSec;
+      PassSumSec--;
+   }else{
+      SumSec = BreakSumSec;
+      BreakSumSec--;
+   }
+   //PassSumSec = PassHour * 3600 + PassMin * 60 + PassSec;
+   //PassSumSec--;
    
-   PassHour = Math.floor(PassSumSec / 3600);
-   PassMin = Math.floor(PassSumSec / 60)%60;
-   PassSec = PassSumSec%60;
+   var Hour = Math.floor(SumSec / 3600);
+   var Min = Math.floor(SumSec / 60)%60;
+   var Sec = SumSec%60;
    
-   document.getElementById("hour").textContent=String(PassHour).padStart(2,"0"); //一桁になった時0がつくように
-   document.getElementById("min").textContent=String(PassMin).padStart(2,"0")
-   document.getElementById("sec").textContent=String(PassSec).padStart(2,"0")
+   document.getElementById("hour").textContent=String(Hour).padStart(2,"0"); //一桁になった時0がつくように
+   document.getElementById("min").textContent=String(Min).padStart(2,"0")
+   document.getElementById("sec").textContent=String(Sec).padStart(2,"0")
+
+   SumSec = Hour * 3600 + Min * 60 + Sec;
+   
+   if(SumSec == 0){
+      WorkFlag = !WorkFlag;
+      ResetSumSec();
+      console.log(PassSumSec +" : " + BreakSumSec);
+   }
 }
  
 // 繰り返し処理の開始
@@ -65,4 +87,18 @@ function SetWorkTime(){
    document.getElementById("hour").textContent=String(PassHour).padStart(2,"0"); //一桁になった時0がつくように
    document.getElementById("min").textContent=String(PassMin).padStart(2,"0")
    document.getElementById("sec").textContent=String(PassSec).padStart(2,"0")
+}
+
+function SetBreakTime(){
+   const hour = document.getElementById("breakhour")
+   const minute = document.getElementById("breakminute")
+   BreakHour = hour.value
+   BreakMin = minute.value
+   BreakSec = 0;
+   BreakSumSec = BreakHour * 3600 + BreakMin * 60 + BreakSec;
+}
+
+function ResetSumSec(){
+   BreakSumSec = BreakHour * 3600 + BreakMin * 60 + BreakSec;
+   PassSumSec = PassHour * 3600 + PassMin * 60 + PassSec;
 }
