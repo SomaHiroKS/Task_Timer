@@ -8,12 +8,15 @@ var BreakSec;
 var BreakSumSec;
 var WorkFlag;
 var SumSec;
+const work_music = new Audio('music/work.mp3');
+const break_music = new Audio('music/break.mp3');
  
 window.onload = function(){
    document.getElementById("restartcount").disabled = true;
    document.getElementById("resetcount").disabled = true;
    document.getElementById("stopcount").disabled = true;
    WorkFlag = Boolean("true");
+   
 }
 
 // 繰り返し処理の中身
@@ -21,9 +24,17 @@ function countdown() {
    if(WorkFlag){
       SumSec = PassSumSec;
       PassSumSec--;
+      break_music.pause();
+      work_music.play();
+      work_music.volume = 0.01;
+      work_music.loop = true;
    }else{
       SumSec = BreakSumSec;
       BreakSumSec--;
+      work_music.pause();
+      break_music.play();
+      break_music.volume = 0.01;
+      break_music.loop = true;
    }
    //PassSumSec = PassHour * 3600 + PassMin * 60 + PassSec;
    //PassSumSec--;
