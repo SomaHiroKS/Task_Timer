@@ -16,7 +16,6 @@ window.onload = function(){
    document.getElementById("resetcount").disabled = true;
    document.getElementById("stopcount").disabled = true;
    WorkFlag = Boolean("true");
-   
 }
 
 // 繰り返し処理の中身
@@ -28,6 +27,7 @@ function countdown() {
       work_music.play();
       work_music.volume = 0.01;
       work_music.loop = true;
+      document.getElementById("nowwork").innerText = "休憩まで"
    }else{
       SumSec = BreakSumSec;
       BreakSumSec--;
@@ -35,6 +35,7 @@ function countdown() {
       break_music.play();
       break_music.volume = 0.01;
       break_music.loop = true;
+      document.getElementById("nowwork").innerText = "作業まで"
    }
    //PassSumSec = PassHour * 3600 + PassMin * 60 + PassSec;
    //PassSumSec--;
@@ -71,12 +72,17 @@ function restartTimer() {
  
 // 繰り返し処理の中止
 function stopTimer() {
+   break_music.pause();
+   work_music.pause();
    clearInterval( PassageID );   // タイマーのクリア
    document.getElementById("restartcount").disabled = false;
 }
 
 // タイマーリセット
 function resetTimer() {
+   break_music.pause();
+   work_music.pause();
+   WorkFlag = true;
    clearInterval( PassageID );   // タイマーのクリア
    var msg = PassHour + "時間" + PassMin + "分" + PassSec + "秒";
    document.getElementById("PassageArea").innerHTML = msg;

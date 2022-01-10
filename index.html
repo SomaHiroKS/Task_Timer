@@ -8,15 +8,15 @@
     <h1>タスクタイマー</h1>
     <div>
       <p>作業時間</p>
-      <input type="text" id="workhour">
-      <input type="text" id="workminute">
+      <input type="number" value="0" min="0" max="23" id="workhour">
+      <input type="number" value="0" min="0" max="59" id="workminute">
       <input type="button" value="決定" id="worktime" onclick="SetWorkTime();">
     </div>
 
     <div>
       <p>休憩時間</p>
-      <input type="text" id="breakhour">
-      <input type="text" id="breakminute">
+      <input type="number"  value="0" min="0" max="23" id="breakhour">
+      <input type="number"  value="0" min="0" max="59" id="breakminute">
       <input type="button" value="決定" id="breaktime" onclick="SetBreakTime();">
     </div>
 
@@ -27,7 +27,7 @@
         <input type="button" value="カウントリセット" id="resetcount" onclick="resetTimer();">
     </p>
 
-    <p id="now">休憩まで</p>
+    <p id="nowwork">休憩まで</p>
     <p class="timer">あと
       <span id="hour"></span>時間
       <span id="min"></span>分
