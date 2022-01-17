@@ -1,0 +1,45 @@
+body{
+    background: #15151e;
+}
+
+.timer {
+    font-family: 'Share Tech Mono', monospace;
+    color: #daf6ff;
+    text-shadow: 0 0 20px #0aafe6;
+    line-height: 1.2;
+    text-align: center;
+    font-size: 50px;
+  }
+
+h1{
+    font-family: 'Share Tech Mono', monospace;
+    color: #daf6ff;
+    text-shadow: 0 0 20px #0aafe6;
+    line-height: 1.2;
+    text-align: center;
+}
+p{
+    font-family: 'Share Tech Mono', monospace;
+    color: #daf6ff;
+    text-shadow: 0 0 20px #0aafe6;
+    line-height: 1.2;
+    text-align: center;
+}
+
+#work{
+    font-family: 'Share Tech Mono', monospace;
+    color: #daf6ff;
+    text-shadow: 0 0 20px #0aafe6;
+    line-height: 1.2;
+    text-align: center;
+}
+
+#break{
+    font-family: 'Share Tech Mono', monospace;
+    color: #daf6ff;
+    text-shadow: 0 0 20px #0aafe6;
+    line-height: 1.2;
+    text-align: center;
+}
+
+

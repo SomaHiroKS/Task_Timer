@@ -2,18 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/main.css">
     <title>タスクタイマー</title>
   </head>
   <body>
     <h1>タスクタイマー</h1>
-    <div>
+    <div id="work">
       <p>作業時間</p>
       <input type="number" value="0" min="0" max="23" id="workhour">
       <input type="number" value="0" min="0" max="59" id="workminute">
       <input type="button" value="決定" id="worktime" onclick="SetWorkTime();">
     </div>
 
-    <div>
+    <div id="break">
       <p>休憩時間</p>
       <input type="number"  value="0" min="0" max="23" id="breakhour">
       <input type="number"  value="0" min="0" max="59" id="breakminute">
